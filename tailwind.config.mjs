@@ -2,7 +2,18 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			maxWidth: {
+				prose: '80ch'
+			},
+
+			fontFamily: {
+				sans: 'Inter'
+			},
+		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+		require('tailwindcss-dotted-background')
+	],
 }
