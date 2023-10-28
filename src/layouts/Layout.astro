@@ -13,13 +13,9 @@ const { title, heroImage } = Astro.props;
     <BaseHead title={title} />
   </head>
 
-  <body class="bg-dotted-spacing-4 bg-dotted-black/[3%] px-4">
+  <body class="bg-dotted-spacing-4 bg-dotted-black/[3%] px-4 pt-10">
     <article class="prose prose-stone max-w-prose mx-auto">
       <div>
-        <a class="w-fit flex gap-1 items-center text-base no-underline hover:underline" href="/">
-          <img src="/arrow.png" alt="Seta para a esquerda">
-          Voltar à pagina anterior
-        </a>
         <time class="text-sm font-medium">Quinta-feira, 26 Outubro 2023</time>
         <h1 class="my-6">{title}</h1>
   
