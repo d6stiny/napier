@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -12,63 +11,27 @@ const { title, heroImage } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} />
-    <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
   </head>
 
-  <body>
-    <Header />
-    <main>
-      <article>
-        <div class="hero-image">
-          {heroImage && <img width={512} height={256} src={heroImage} alt="" />}
-        </div>
-        <div class="prose">
-          <div class="title">
-            <h1>{title}</h1>
-            <hr />
-          </div>
-          <slot />
-        </div>
-      </article>
-    </main>
-    <Footer />
+  <body class="bg-dotted-spacing-4 bg-dotted-black/[3%] px-4 pt-10">
+    <article class="prose prose-stone max-w-prose mx-auto">
+      <div>
+        <time class="text-sm font-medium">Quinta-feira, 26 Outubro 2023</time>
+        <h1 class="my-6">{title}</h1>
+  
+        <ul>
+          <li>
+            Feito por:
+            <strong>João Gonçalves e Diogo Castro</strong>
+          </li>
+        </ul>
+  
+        <hr />
+      </div>
+
+      <slot />
+
+      <Footer />
+    </article>
   </body>
 </html>
